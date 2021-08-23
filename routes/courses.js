@@ -1,6 +1,5 @@
-const Course = require('../models/Course');
-const results = require('../middleware/results');
 const express = require('express');
+const router = express.Router({ mergeParams: true });
 const {
 	getCourses,
 	getCourse,
@@ -12,9 +11,9 @@ const populate = {
 	path: 'bootcamp',
 	select: 'name description',
 };
+const Course = require('../models/Course');
 
-const router = express.Router({ mergeParams: true });
-
+const results = require('../middleware/results');
 const { protect, authorize } = require('../middleware/auth');
 
 router
